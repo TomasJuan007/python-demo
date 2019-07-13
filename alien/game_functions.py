@@ -72,8 +72,13 @@ def fire_bullet(ai_settings, screen, ship, bullets):
     """Fire a bullet, if limit not reached yet."""
     # Create a new bullet, add to bullets group.
     if len(bullets) < ai_settings.bullets_allowed:
-        new_bullet = Bullet(ai_settings, screen, ship)
-        bullets.add(new_bullet)
+        new_bullet = Bullet(ai_settings, screen, ship, 0)
+        for num in range(1,2):
+            new_bullet1 = Bullet(ai_settings, screen, ship, -20*num)
+            new_bullet2 = Bullet(ai_settings, screen, ship, 20*num)
+            bullets.add(new_bullet)
+            bullets.add(new_bullet1)
+            bullets.add(new_bullet2)
 
 def update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets,
         play_button):
